@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container } from './template/container';
+import { default as Header } from './template/header';
+import { Home } from './template/home';
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Routes } from './app/routes';
+import { GlobalStyle } from './template/theme';
+import { NavBar } from './template/navbar';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <GlobalStyle />
+      <Container>
+        <Header />
+        <NavBar />
+        <Home>
+          <Routes />
+        </Home>
+      </Container>
+    </Router>
   );
 }
 
