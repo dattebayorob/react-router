@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
+import { useLocation, useHistory } from 'react-router';
 
 interface RedirectLabelProps {
-    pathname: String;
-    nextUrl: String;
-    nextLabel: String;
-    redirect: Function;
+    nextUrl: string;
+    nextLabel: string;
 }
 
-export const RedirectLabel: FC<RedirectLabelProps> = ({ redirect, pathname, nextUrl, nextLabel }) => (
+export const RedirectLabel: FC<RedirectLabelProps> = ({ nextUrl, nextLabel }) => {
+    const { pathname } = useLocation()
+    const { push } = useHistory()
+    return (
     <div>
         You are on {pathname} <br/>
-        <button onClick={() => redirect(nextUrl)}>
+        <button onClick={() => push(nextUrl)}>
             Go to {nextLabel}
         </button>
     </div>
-)
+)}

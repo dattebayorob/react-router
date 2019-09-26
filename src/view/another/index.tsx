@@ -4,12 +4,10 @@ import { RedirectLabel } from '../../components/redirectLabel'
 
 interface AnotherProps extends RouteComponentProps {}
 
-export const Another: FC<AnotherProps> = ({ history, location, match }) => {
+export const Another: FC<AnotherProps> = () => {
     return (
         <RedirectLabel
             nextLabel={"Root"}
-            nextUrl={"/"}
-            pathname={location.pathname}
-            redirect={history.push} />
+            nextUrl={"/"} />
     )
 }

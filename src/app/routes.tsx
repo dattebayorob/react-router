@@ -5,7 +5,9 @@ import { Another } from '../view/another'
 
 export const Routes: React.FC = () => (
     <Switch>
-        <Route exact path="/" component={Sample} />
+        <Route exact path="/">
+            <Sample />
+        </Route>
         <Route path="/another" component={Another} />
     </Switch>
 )
